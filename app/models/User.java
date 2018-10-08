@@ -3,6 +3,10 @@ package models;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
+
 //Tabla de usuario
 @Entity
 public class User extends Model {
@@ -16,6 +20,18 @@ public class User extends Model {
         this.username=username;
         this.email=email;
         this.password=password;
+        //this.shoppingCartList = new ArrayList<ProductQuantity>();
+        this.wishlistList  = new ArrayList<ProductQuantity>();
+        this.purchaseList = new ArrayList<Purchase>();
     }
+    @OneToMany
+    public List<Purchase> purchaseList;
+
+    //@OneToMany
+    //public List<ProductQuantity> shoppingCartList;
+
+    @OneToMany
+    public List<ProductQuantity> wishlistList;
+
 
 }
