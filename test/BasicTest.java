@@ -29,7 +29,7 @@ public class BasicTest extends UnitTest {
 
         User u1=User.find("byUsername","Azucar").first();
         Assert.assertEquals(u1.username, "Azucar");
-        u1.wishlistList.add(pq1);
+        u1.shoppingCartList.add(pq1);
         u1.save();
 
     }
