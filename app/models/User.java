@@ -30,8 +30,8 @@ public class User extends Model {
     @OneToMany
     public List<ProductQuantity> shoppingCartList;
 
-    //@OneToMany
-    //public List<ProductQuantity> wishlistList; No puedo crear dos listas de la misma clase
+    @OneToMany
+    public List<Product> wishlistList;// No puedo crear dos listas de la misma clase
 
 
 }
