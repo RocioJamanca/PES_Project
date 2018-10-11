@@ -21,7 +21,7 @@ public class User extends Model {
         this.email=email;
         this.password=password;
         this.shoppingCartList = new ArrayList<ProductQuantity>();
-        //this.wishlistList  = new ArrayList<ProductQuantity>();
+        this.wishlistList  = new ArrayList<Product>();
         this.purchaseList = new ArrayList<Purchase>();
     }
     @OneToMany
@@ -33,5 +33,6 @@ public class User extends Model {
     @OneToMany
     public List<Product> wishlistList;// No puedo crear dos listas de la misma clase
 
+    //Hola
 
 }
