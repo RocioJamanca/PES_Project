@@ -16,9 +16,20 @@ public class Application extends Controller {
     }
 
     public static void register(String username,String email,String password){
-        User user =new User(username,email,password).save();
-        user.save();
-        render();
+
+        User u = User.find(" byUsername",username).first();
+        if(u==null)
+        {
+            User user =new User(username,email,password).save();
+            user.save();
+        }
+        else
+        {
+            renderText("Sorry you are registered ");
+        }
+
+
+        //render();
     }
 
     public static void login(String u,String p){
