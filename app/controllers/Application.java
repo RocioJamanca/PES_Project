@@ -15,25 +15,34 @@ public class Application extends Controller {
 
     }
 
+    public static void loadPage(int i){
+        if (i==1)
+            renderTemplate("Application/login.html");
+        else
+            renderTemplate("Application/register.html");
+        render();
+    }
+
     public static void register(String username,String email,String password){
 
-        User u = User.find(" byUsername",username).first();
+        User u = User.find("byUsername",username).first();
         if(u==null)
         {
             User user =new User(username,email,password).save();
             user.save();
+            renderText("You've been registered correctly!");
         }
-        else
-        {
+        else {
             renderText("Sorry you are registered ");
         }
 
-
-        //render();
+       // render();
     }
 
-    public static void login(String u,String p){
-        User user = User.find("byUsernameAndPassword",u,p).first();
+
+
+    public static void login(String username,String password){
+        User user = User.find("byUsernameAndPassword",username,password).first();
         if (user!=null)
         {
             renderText("Welcome "+ user.username);
@@ -42,6 +51,8 @@ public class Application extends Controller {
         {
             renderText("Sorry you are not registered ");
         }
+
+        //render();
     }
 
     public  static void deleteUser(){

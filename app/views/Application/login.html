@@ -1,33 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
+
+<html>
 <body>
-<h1>Login page</h1>
-</body>
-</html>
+<h1>Login Page</h1>
 
+<h3>Login</h3>
 
-
-<h3>Enter data</h3>
-#{form @Application.register()}
-
+#{form @Application.login()}
 <p>
     <label for="username">Your name: </label>
     <input type="text" name="username" id="username" />
 </p>
-
 <p>
-    <label for="email">Your message: </label>
-    <input type="text" name="text" />
+    <label for="password">Your Password: </label>
+    <input type="text" name="password" id="password" />
 </p>
 <p>
-    <label for="password">Your message: </label>
-    <input type="text" name="password" />
-</p>
-<p>
-    <input type="submit" value="Submit your data" />
+    <input type="submit" value="Login" />
 </p>
 #{/form}
+
+</body>
+</html>

@@ -1,4 +1,23 @@
-#{extends 'main.html' /}
-#{set title:'Home' /}
 
-#{welcome /}
+<html>
+<body>
+<h1>Technology Shop</h1>
+
+
+#{form @Application.loadPage(1)}
+
+<p>
+    <input type="submit" value="Login" />
+</p>
+#{/form}
+
+
+#{form @Application.loadPage(2)}
+
+<p>
+    <input type="submit" value="Register" />
+</p>
+#{/form}
+
+</body>
+</html>

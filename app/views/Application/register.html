@@ -1,12 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-</head>
-<body>
-<h1>Resgister page</h1>
 
+<html>
+<body>
+<h1>Register page</h1>
+
+<h3>Register</h3>
+
+#{form @Application.register()}
+<p>
+    <label for="username">Your name: </label>
+    <input type="text" name="username" id="username" />
+</p>
+<p>
+    <label for="password">Your Password: </label>
+    <input type="text" name="password" id="password" />
+</p>
+
+<p>
+    <label for="email">Your Email: </label>
+    <input type="text" name="email" id="email" />
+</p>
+
+<p>
+    <input type="submit" value="Login" />
+</p>
+#{/form}
 
 </body>
 </html>
