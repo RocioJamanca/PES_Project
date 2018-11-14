@@ -1,29 +1,32 @@
-
 <html>
 <body>
 <h1>Register page</h1>
-
+<hr>
 <h3>Register</h3>
 
 #{form @Application.register()}
 <p>
-    <label for="username">Your name: </label>
-    <input type="text" name="username" id="username" />
-</p>
-<p>
-    <label for="password">Your Password: </label>
-    <input type="text" name="password" id="password" />
-</p>
+<ul>
+    <li><label for="username">Your name: </label> <input type="text" name="username" id="username" /></li>
 
-<p>
-    <label for="email">Your Email: </label>
-    <input type="text" name="email" id="email" />
+    <li> <label for="password">Your Password: </label>
+        <input type="text" name="password" id="password" /></li>
+
+    <li> <label for="email">Your Email: </label>
+        <input type="text" name="email" id="email" /></li>
+
+</ul>
 </p>
 
 <p>
     <input type="submit" value="Login" />
 </p>
+
+
+
 #{/form}
+<p>
+
 
 </body>
 </html>

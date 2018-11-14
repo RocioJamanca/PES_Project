@@ -9,7 +9,7 @@ public class Product extends Model {
     public String category; //Aqi dentro ponemos a que pertenece, si es tv, telef, impresora....
     public String model;
     public String brand;
-    public float price;
+    public double price;
 
 
     public Product(String category, String model, String brand, float price) {

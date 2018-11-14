@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Page</title>
+</head>
+<body>
+
+<h1>Shopping Page</h1>
+
+#{form @Application.getName()}
+<p>
+<ul>
+    <h4>If you want to know what's your username</h4>
+    <li> <label for="email">Your Email: </label>
+        <input type="text" name="email" id="email" /></li>
+
+    <input type="submit" value="Show" />
+
+</ul>
+</p>
+#{/form}
+#{form @Application.findByBrand()}
+<p>
+<ul>
+    <h4>If you want to know products by Brand</h4>
+    <li> <label for="brand">Brand: </label>
+        <input type="text" name="brand" id="brand" /></li>
+
+    <input type="submit" value="Show" />
+
+</ul>
+</p>
+#{/form}
+#{form @Application.findByCategories()}
+<p>
+<ul>
+        <h4>If you want to know products by Category</h4>
+    <li> <label for="category">Category: </label>
+        <input type="text" name="category" id="category" /></li>
+
+    <input type="submit" value="Show" />
+
+</ul>
+
+</p>
+#{/form}
+#{form @Application.initProducts()}
+<p>
+<ul>
+
+    <h4>If you want to initialize all products</h4>
+    <input type="submit" value="InitProducts" />
+
+</ul>
+
+</p>
+#{/form}
+
+</body>
+</html>

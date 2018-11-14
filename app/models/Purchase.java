@@ -11,13 +11,14 @@ import java.util.List;
 public class Purchase extends Model {
 
     @OneToMany
-   public List<ProductQuantity> items;
+   public List<ProductQuantity> items = new ArrayList<ProductQuantity>();
    //Añadir fecha
 
+    @OneToOne
+    public User userP;
 
-
-    public  Purchase(){
-       this.items=new ArrayList<ProductQuantity>();
-   }
+public Purchase(List<ProductQuantity> items){
+    this.items=items;
+}
 
 }
