@@ -5,17 +5,24 @@
     <title>Shopping Page</title>
 </head>
 <body>
+<body style="background-color:#364B66; font-family: Helvetica; width: 900px;padding: 0 30px; margin: auto;">
 
-<h1>Shopping Page</h1>
+<h1 style="width: 300px; background: #4595c5;
+padding: 10px 15px 15px 10px;
+margin: 10px 0;
+color: #1c2843;
+position: relative;
+-webkit-border-radius: 16px;
+-webkit-box-shadow: 0 2px 0 #6690a0;
+-moz-border-radius: 16px;
+">Shopping Page</h1>
 
 #{form @Application.getName()}
 <p>
 <ul>
     <h4>If you want to know what's your username</h4>
-    <li> <label for="email">Your Email: </label>
-        <input type="text" name="email" id="email" /></li>
-
-    <input type="submit" value="Show" />
+    <li> <label for="email">Email </label>
+        <input type="text" name="email" id="email" /> <input type="submit" value="Show" style="width: 65px; align-content: center; margin:auto;background-color: #1c2843;font-family: Helvetica;color: #fffeff;border-color: #1c2843;padding: 5px"/></li>
 
 </ul>
 </p>
@@ -24,10 +31,8 @@
 <p>
 <ul>
     <h4>If you want to know products by Brand</h4>
-    <li> <label for="brand">Brand: </label>
-        <input type="text" name="brand" id="brand" /></li>
-
-    <input type="submit" value="Show" />
+    <li> <label for="brand">Brand </label>
+        <input type="text" name="brand" id="brand" /> <input type="submit" value="Show" style="width: 65px; align-content: center; margin:auto;background-color: #1c2843;font-family: Helvetica;color: #fffeff;border-color: #1c2843;padding: 5px"/></li>
 
 </ul>
 </p>
@@ -35,11 +40,11 @@
 #{form @Application.findByCategories()}
 <p>
 <ul>
-        <h4>If you want to know products by Category</h4>
-    <li> <label for="category">Category: </label>
-        <input type="text" name="category" id="category" /></li>
+    <h4>If you want to know products by Category</h4>
+    <li> <label for="category">Category </label>
+        <input type="text" name="category" id="category" />
 
-    <input type="submit" value="Show" />
+        <input type="submit" value="Show" style="width: 65px; align-content: center; margin:auto;background-color: #1c2843;font-family: Helvetica;color: #fffeff;border-color: #1c2843;padding: 5px"/></li>
 
 </ul>
 
@@ -50,7 +55,7 @@
 <ul>
 
     <h4>If you want to initialize all products</h4>
-    <input type="submit" value="InitProducts" />
+    <input type="submit" value="Init Products" style="width: 90px; align-content: center; margin:auto;background-color: #1c2843;font-family: Helvetica;color: #fffeff;border-color: #1c2843;padding: 6px"/></li>
 
 </ul>
 

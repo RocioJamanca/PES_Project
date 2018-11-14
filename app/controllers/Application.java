@@ -164,7 +164,7 @@ public class Application extends Controller {
     public static void getName(String email){
         User u = User.find("byEmail", email).first();
         if(u == null){
-            renderText("error/");
+            renderText("Error");
         }
         renderText("Yor username is: "+u.username + "");
     }
@@ -172,13 +172,21 @@ public class Application extends Controller {
     //Find all products by Category TV,Smartphone...
     public static void findByCategories(String category){
         List<Product> products= Product.find("byCategory",category).fetch();
-        renderJSON(products);
+        if(products!=null) {
+            renderJSON(products);
+        }
+        else
+            renderText("Please try again we haven't found: '" +category+"'");
     }
 
     //Find all products by Brand Samsung, Apple...
     public static void findByBrand(String brand){
         List<Product> products= Product.find("byBrand",brand).fetch();
-        renderJSON(products);
+        if(products!=null) {
+            renderJSON(products);
+        }
+        else
+            renderText("Please try again we haven't found: '" +brand+"'");
     }
 
     //Get all products on the shopping cart (include quantity)

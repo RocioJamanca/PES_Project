@@ -1,22 +1,29 @@
 <html>
 <body>
-<h1>Login Page </h1>
+<body style="background-color:#364B66; font-family: Helvetica; width: 900px;padding: 0 30px; margin: auto;">
 
-
-
-<h3><ins>LogIn</ins></h3>
+<p>
+<h1 style="width: 300px; background: #4595c5;
+padding: 10px 15px 15px 10px;
+margin: 10px 0;
+color: #1c2843;
+position: relative;
+-webkit-border-radius: 16px;
+-webkit-box-shadow: 0 2px 0 #6690a0;
+-moz-border-radius: 16px;
+">LogIn Here</h1>
 
 #{form @Application.login()}
 <p>
-    <label for="username">Your name: </label>
+    <label for="username">Enter Name: </label>
     <input type="text" name="username" id="username" />
 </p>
 <p>
-    <label for="password">Your Password: </label>
+    <label for="password">Enter Password: </label>
     <input type="text" name="password" id="password" />
 </p>
 <p>
-    <input type="submit" value="Login" />
+    <input type="submit" value="LogIn" style="width: 60px; align-content: center; margin:auto;background-color: #1c2843;font-family: Helvetica;color: #fffeff;border-color: #1c2843;padding: 5px"/>
 </p>
 #{/form}
 
