@@ -13,7 +13,9 @@ public class BasicTest extends UnitTest {
        ProductQuantity pq5= new ProductQuantity(p5,150).save();
        List<ProductQuantity> productQuantityList =new ArrayList<ProductQuantity>();
        productQuantityList.add(pq5);
-       Purchase pur5= new Purchase(productQuantityList);
+       Purchase pur5= new Purchase(u5);
+       pur5.productQuantityList.size();
+       Assert.assertNotNull(pur5.productQuantityList);
        u5.wishlistList.add(p5);
        Assert.assertNotNull(pur5);
 
@@ -55,11 +57,31 @@ public class BasicTest extends UnitTest {
 
         //Get all products on the shopping cart (include quantity)
         User u2= User.find("byEmail","ana@gmail.com").first();
-        Assert.assertNull(u.purchase);
+        Assert.assertNull(u2.purchase);
 
         //Get all products in whishlist
         User u3= User.find("byEmail","ana@gmail.com").first();
         Assert.assertNotNull(u.wishlistList);
+
+        //Add to shoping cart
+        String email="ana@gmail.com";
+        Product p4= new Product("SAMSUNG","MODEL","BRAND",1582);
+        User u4 = User.find("byEmail",email).first();
+        ProductQuantity productQuantity = new ProductQuantity(p4,78);
+        Purchase pur= new Purchase(u4);
+        pur.productQuantityList.add(productQuantity);
+
+      //Get price
+        Purchase purchase2 = Purchase.find("byUserP",u4).first();
+
+        if (purchase2!=null)
+        {
+            double price=0;
+            for(int i=0; i<purchase2.productQuantityList.size();i++) {
+                price = price + (purchase2.productQuantityList.get(i).product.price*purchase2.productQuantityList.get(i).quantity);
+
+            }
+        }
 
 
     }

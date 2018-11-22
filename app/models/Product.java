@@ -2,6 +2,8 @@ package models;
 
 import play.db.jpa.Model;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+
 //Tabla de productos
 @Entity
 public class Product extends Model {
@@ -10,6 +12,9 @@ public class Product extends Model {
     public String model;
     public String brand;
     public double price;
+
+    @OneToOne
+    public ProductQuantity productQuantity;
 
 
     public Product(String category, String model, String brand, float price) {

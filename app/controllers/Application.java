@@ -8,6 +8,8 @@ import java.util.*;
 
 import models.*;
 
+import javax.jws.soap.SOAPBinding;
+
 public class Application extends Controller {
 
     public static void index() {
@@ -97,6 +99,7 @@ public class Application extends Controller {
         ProductQuantity productQuantity34=new ProductQuantity(p34,5).save();
         ProductQuantity productQuantity35=new ProductQuantity(p35,5).save();
 
+
         renderTemplate("Application/shoppingPage.html");
     }
 
@@ -112,12 +115,30 @@ public class Application extends Controller {
 
         if( email.contains("@")==true) {
 
-            User u = User.find("byUsername", username).first();
+            User u = User.find("byEmail", username).first();
             if (u == null) {
                 User user = new User(username, email, password).save();
                 user.save();
-
                 renderTemplate("Application/shoppingPage.html");
+            } else {
+                String message ="Sorry you are registered";
+                renderText(message);
+            }
+        }
+        else
+        {
+            renderText("Email parameter isn't correct");
+        }
+    }
+    public static void registerM(String username,String email,String password){
+
+        if( email.contains("@")==true) {
+
+            User u = User.find("byEmail", username).first();
+            if (u == null) {
+                User user = new User(username, email, password).save();
+                user.save();
+                renderText("Congratulations! You've been registered correctly");
 
             } else {
                 String message ="Sorry you are registered";
@@ -136,8 +157,27 @@ public class Application extends Controller {
         User user = User.find("byUsernameAndPassword",username,password).first();
         if (user!=null)
         {
+            if (username=="admin"&password=="admin")
+            {
+                renderText("Welcome ADMIN " );
+            }
+            else {
 
-            renderTemplate("Application/shoppingPage.html");
+                renderTemplate("Application/shoppingPage.html");
+                renderText("Welcome " + user.username);
+            }
+        }
+        else
+        {
+            renderText("Sorry you are not registered");
+        }
+
+    }
+    public static void loginM(String username,String password){
+        User user = User.find("byUsernameAndPassword",username,password).first();
+        if (user!=null)
+        {
+
             renderText("Welcome "+ user.username);
         }
         else
@@ -147,10 +187,18 @@ public class Application extends Controller {
 
     }
 
-    //get all users
+
+
+    //get all users (Name and email)
     public static void getUsers(){
+
         List<User> u =User.findAll();
-        renderJSON(u);
+        List<String> users= new ArrayList<String>();
+        for (int i=0; i<u.size();i++)
+        {
+            users.add(u.get(i).username+"/"+u.get(i).email);
+        }
+        renderJSON(users);
     }
     //delete user
     public  static void deleteUser(String user){
@@ -201,6 +249,51 @@ public class Application extends Controller {
         User u= User.find("byEmail",email).first();
         renderJSON(u.wishlistList);
     }
+
+
+    public static void addWishlist(String email,Product product){
+        User u = User.find("byEmail",email).first();
+        u.wishlistList.add(product);
+    }
+
+    public static void addPurchase(String email, Product product, int quantity){
+        User u = User.find("byEmail",email).first();
+       //Introduzco el producto seleccionado y la cantidad
+        ProductQuantity productQuantity = new ProductQuantity(product,quantity);
+        //Busco si la compra ya se ha hecho o hay que hacer una nueva
+        Purchase purchase = Purchase.find("byUser",u).first();
+        if (purchase!=null)
+        {
+            purchase.productQuantityList.add(productQuantity);
+        }
+        else
+        {
+            new Purchase(u);
+            purchase.productQuantityList.add(productQuantity);
+        }
+
+
+    }
+
+    public static void getPrice(String email){
+        User u = User.find("byEmail",email).first();
+        Purchase purchase = Purchase.find("byUserP",u).first();
+
+        if (purchase!=null)
+        {
+            double price=0;
+            for(int i=0; i<purchase.productQuantityList.size();i++) {
+                price = price + (purchase.productQuantityList.get(i).product.price*purchase.productQuantityList.get(i).quantity);
+
+            }
+            renderText(price);
+        }
+        else
+        {
+            renderText("Your shopping cart is empty");
+        }
+    }
+
 
 
 }

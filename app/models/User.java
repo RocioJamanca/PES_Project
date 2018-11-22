@@ -12,7 +12,6 @@ public class User extends Model {
     public String username;
     public String email;
     public String password;
-    public boolean isAdmin;
 
     //El constructor nos permite crear el usuario
     public User (String username,String email,String password)
@@ -20,7 +19,6 @@ public class User extends Model {
         this.username=username;
         this.email=email;
         this.password=password;
-        this.isAdmin=isAdmin;
         //this.shoppingCartList = new ArrayList<ProductQuantity>();
         this.wishlistList  = new ArrayList<Product>();
         //this.purchaseList = new ArrayList<Purchase>();
@@ -34,8 +32,5 @@ public class User extends Model {
    @OneToMany
     public List<Product> wishlistList;
 
-
-
-    //Hola
 
 }

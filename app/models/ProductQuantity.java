@@ -11,7 +11,8 @@ import javax.persistence.OneToOne;
 public class ProductQuantity extends Model {
     @OneToOne
     public Product product;
-    int quantity;
+   public int quantity;
+
     @ManyToOne
     public Purchase purchase;
 
