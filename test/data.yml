@@ -1,7 +1,14 @@
 # you describe your data using the YAML notation here
 # and then load them using Fixtures.load("data.yml")
 
-# User(bob):
-#   email: bob@gmail.com
-#   password: secret
-#   fullname: Bob
+User(admin):
+     email: admin@gmail.com
+     password: admin
+     fullname: admin
+
+Product(p1):
+  category : PC;
+  model : PAVILON;
+  brand : HP;
+  price : 1574;
+  #Para comentar , aqui poneis la url de los productos (la imagen)

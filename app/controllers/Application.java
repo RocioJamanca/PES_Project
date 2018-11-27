@@ -5,6 +5,7 @@ import play.*;
 import play.mvc.*;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import models.*;
 
@@ -215,6 +216,16 @@ public class Application extends Controller {
             renderText("Error");
         }
         renderText("Yor username is: "+u.username + "");
+    }
+    //Find categories
+    public  static  void findCategories(){
+        List<String> categories = new ArrayList<>();
+        List<Product> productList = Product.findAll();
+        for (int i=0;i<productList.size();i++){
+            categories.add(productList.get(i).category);
+        }
+        renderJSON(categories.stream().distinct().collect(Collectors.toList()));
+
     }
 
     //Find all products by Category TV,Smartphone...
