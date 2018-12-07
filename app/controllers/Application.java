@@ -4,6 +4,7 @@ import org.junit.experimental.categories.Categories;
 import play.*;
 import play.mvc.*;
 
+import java.io.File;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -101,6 +102,7 @@ public class Application extends Controller {
         ProductQuantity productQuantity35=new ProductQuantity(p35,5).save();
 
 
+
         renderTemplate("Application/shoppingPage.html");
     }
 
@@ -188,6 +190,19 @@ public class Application extends Controller {
 
     }
 
+    public static void showCategoryImage(String category){
+        Product p = Product.find("byCategory",category).first();
+        try {
+            if (p != null) {
+                File imagen = new File("././documentation/images/" + category + ".png");
+                response.setContentTypeIfNotSet("image/png");
+                renderBinary(imagen);
+            }
+        }
+        catch (Exception e){
+
+        }
+    }
 
 
     //get all users (Name and email)
@@ -217,6 +232,7 @@ public class Application extends Controller {
         }
         renderText("Yor username is: "+u.username + "");
     }
+
     //Find categories
     public  static  void findCategories(){
         List<String> categories = new ArrayList<>();
@@ -225,7 +241,6 @@ public class Application extends Controller {
             categories.add(productList.get(i).category);
         }
         renderJSON(categories.stream().distinct().collect(Collectors.toList()));
-
     }
 
     //Find all products by Category TV,Smartphone...
@@ -282,11 +297,9 @@ public class Application extends Controller {
             new Purchase(u);
             purchase.productQuantityList.add(productQuantity);
         }
-
-
     }
 
-    public static void getPrice(String email){
+    public static void getPriceOfPurchase(String email){
         User u = User.find("byEmail",email).first();
         Purchase purchase = Purchase.find("byUserP",u).first();
 
@@ -304,7 +317,5 @@ public class Application extends Controller {
             renderText("Your shopping cart is empty");
         }
     }
-
-
-
+    //Borrar carrito
 }
