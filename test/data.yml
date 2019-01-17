@@ -6,9 +6,13 @@ User(admin):
      password: admin
      fullname: admin
 
-Product(p1):
-  category : PC;
-  model : PAVILON;
-  brand : HP;
-  price : 1574;
-  #Para comentar , aqui poneis la url de los productos (la imagen)
+#ordenadores
+
+Product(P1):
+  category: COMPUTER
+  brand: ACER
+  model: AC1
+  price: 200
+  descripcion:
+#url: https://thumb.pccomponentes.com/w-530-530/articles/16/169091/nitro51.jpg
+

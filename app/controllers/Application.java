@@ -23,46 +23,46 @@ public class Application extends Controller {
 
     public static void initProducts(){
 
-        Product p1= new Product("TV","40","LG",400).save();
-        Product p2= new Product("TV","45","LG",500).save();
-        Product p3= new Product("TV","50","LG",600).save();
-        Product p4= new Product("TV","55","LG",700).save();
-        Product p5= new Product("TV","60","LG",800).save();
-        Product p6= new Product("TV","65","LG",900).save();
+        Product p1= new Product("TV","LG1","LG",400,"1234").save();
+        Product p2= new Product("TV","45","LG",500,"1234").save();
+        Product p3= new Product("TV","50","LG",600,"1234").save();
+        Product p4= new Product("TV","55","LG",700,"1234").save();
+        Product p5= new Product("TV","60","LG",800,"1234").save();
+        Product p6= new Product("TV","65","LG",900,"1234").save();
 
-        Product p7= new Product("TV","40","SAMSUNG",400).save();
-        Product p8= new Product("TV","45","SAMSUNG",500).save();
-        Product p9= new Product("TV","50","SAMSUNG",600).save();
-        Product p10= new Product("TV","55","SAMSUNG",700).save();
-        Product p11= new Product("TV","60","SAMSUNG",800).save();
-        Product p12= new Product("TV","65","SAMSUNG",900).save();
+        Product p7= new Product("TV","40","SAMSUNG",400,"1234").save();
+        Product p8= new Product("TV","45","SAMSUNG",500,"1234").save();
+        Product p9= new Product("TV","50","SAMSUNG",600,"1234").save();
+        Product p10= new Product("TV","55","SAMSUNG",700,"1234").save();
+        Product p11= new Product("TV","60","SAMSUNG",800,"1234").save();
+        Product p12= new Product("TV","65","SAMSUNG",900,"1234").save();
 
-        Product p13= new Product("TV","40","SONY",400).save();
-        Product p14= new Product("TV","45","SONY",500).save();
-        Product p15= new Product("TV","50","SONY",600).save();
-        Product p16= new Product("TV","55","SONY",700).save();
-        Product p17= new Product("TV","60","SONY",800).save();
-        Product p18= new Product("TV","65","SONY",900).save();
+        Product p13= new Product("TV","40","SONY",400,"1234").save();
+        Product p14= new Product("TV","45","SONY",500,"1234").save();
+        Product p15= new Product("TV","50","SONY",600,"1234").save();
+        Product p16= new Product("TV","55","SONY",700,"1234").save();
+        Product p17= new Product("TV","60","SONY",800,"1234").save();
+        Product p18= new Product("TV","65","SONY",900,"1234").save();
 
-        Product p19= new Product("SMARTPHONE","S4","SAMSUNG",400).save();
-        Product p20= new Product("SMARTPHONE","S5","SAMSUNG",500).save();
-        Product p21= new Product("SMARTPHONE","S6","SAMSUNG",600).save();
-        Product p22= new Product("SMARTPHONE","S7","SAMSUNG",700).save();
-        Product p23= new Product("SMARTPHONE","S8","SAMSUNG",800).save();
-        Product p24= new Product("SMARTPHONE","S9","SAMSUNG",900).save();
+        Product p19= new Product("SMARTPHONE","S4","SAMSUNG",400,"1234").save();
+        Product p20= new Product("SMARTPHONE","S1","SAMSUNG",500,"1234").save();
+        Product p21= new Product("SMARTPHONE","S2","SAMSUNG",600,"1234").save();
+        Product p22= new Product("SMARTPHONE","S3","SAMSUNG",700,"1234").save();
+        Product p23= new Product("SMARTPHONE","S4","SAMSUNG",800,"1234").save();
+        Product p24= new Product("SMARTPHONE","S5","SAMSUNG",900,"1234").save();
 
-        Product p25= new Product("SMARTPHONE","4S","APPLE",600).save();
-        Product p26= new Product("SMARTPHONE","5S","APPLE",700).save();
-        Product p27= new Product("SMARTPHONE","6S","APPLE",800).save();
-        Product p28= new Product("SMARTPHONE","XS","APPLE",900).save();
-        Product p29= new Product("SMARTPHONE","XR","APPLE",1000).save();
+        Product p25= new Product("SMARTPHONE","4S","APPLE",600,"1234").save();
+        Product p26= new Product("SMARTPHONE","5S","APPLE",700,"").save();
+        Product p27= new Product("SMARTPHONE","6S","APPLE",800,"1234").save();
+        Product p28= new Product("SMARTPHONE","XS","APPLE",900,"1234").save();
+        Product p29= new Product("SMARTPHONE","XR","APPLE",1000,"1234").save();
 
-        Product p30= new Product("PRINTER","ENVY","HP",160).save();
-        Product p31= new Product("PRINTER","OFFICE JET","HP",200).save();
-        Product p32= new Product("PRINTER","OFFICE JET PRO","HP",245).save();
-        Product p33= new Product("PRINTER","OFFICE","CANON",200).save();
-        Product p34= new Product("PRINTER","OFFICE JET","CANON",250).save();
-        Product p35= new Product("PRINTER","OFFICE JET PRO","CANON",272).save();
+        Product p30= new Product("PRINTER","ENVY","HP",160,"1234").save();
+        Product p31= new Product("PRINTER","OFFICE JET","HP",200,"1234").save();
+        Product p32= new Product("PRINTER","OFFICE JET PRO","HP",245,"1234").save();
+        Product p33= new Product("PRINTER","OFFICE","CANON",200,"1234").save();
+        Product p34= new Product("PRINTER","OFFICE JET","CANON",250,"1234").save();
+        Product p35= new Product("PRINTER","OFFICE JET PRO","CANON",272,"1234").save();
 
 
         ProductQuantity productQuantity1=new ProductQuantity(p1,5).save();
@@ -103,6 +103,7 @@ public class Application extends Controller {
 
 
 
+
         renderTemplate("Application/shoppingPage.html");
     }
 
@@ -137,7 +138,7 @@ public class Application extends Controller {
 
         if( email.contains("@")==true) {
 
-            User u = User.find("byEmail", username).first();
+            User u = User.find("byEmail",email).first();
             if (u == null) {
                 User user = new User(username, email, password).save();
                 user.save();
@@ -194,7 +195,7 @@ public class Application extends Controller {
         Product p = Product.find("byCategory",category).first();
         try {
             if (p != null) {
-                File imagen = new File("././documentation/images/" + category + ".png");
+                File imagen = new File("././documentation/images/categories/" + category + ".png");
                 response.setContentTypeIfNotSet("image/png");
                 renderBinary(imagen);
             }
@@ -202,6 +203,34 @@ public class Application extends Controller {
         catch (Exception e){
 
         }
+    }
+
+    public static void showBrandImage(String brand){
+        Product p = Product.find("byBrand",brand).first();
+        try {
+            if (p != null) {
+                File image = new File("././documentation/images/brands/" + brand+ ".png");
+                response.setContentTypeIfNotSet("image/png");
+                renderBinary(image);
+            }
+        }
+        catch (Exception e){
+        }
+
+    }
+
+    public static void showProductImage(String model){
+        Product p = Product.find("byModel",model).first();
+        try {
+            if (p != null) {
+                File image = new File("././documentation/images/products/" + model+ ".jpg");
+                response.setContentTypeIfNotSet("image/jpg");
+                renderBinary(image);
+            }
+        }
+        catch (Exception e){
+        }
+
     }
 
 
@@ -242,6 +271,17 @@ public class Application extends Controller {
         }
         renderJSON(categories.stream().distinct().collect(Collectors.toList()));
     }
+    //Find brands
+    public  static  void findBrands(){
+        List<String> brands = new ArrayList<>();
+        List<Product> productList = Product.findAll();
+        for (int i=0;i<productList.size();i++){
+            brands.add(productList.get(i).brand);
+        }
+        renderJSON(brands.stream().distinct().collect(Collectors.toList()));
+    }
+
+
 
     //Find all products by Category TV,Smartphone...
     public static void findByCategories(String category){
