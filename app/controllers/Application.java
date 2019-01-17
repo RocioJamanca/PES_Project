@@ -101,9 +101,6 @@ public class Application extends Controller {
         ProductQuantity productQuantity34=new ProductQuantity(p34,5).save();
         ProductQuantity productQuantity35=new ProductQuantity(p35,5).save();
 
-
-
-
         renderTemplate("Application/shoppingPage.html");
     }
 
@@ -114,11 +111,8 @@ public class Application extends Controller {
             renderTemplate("Application/register.html");
         render();
     }
-
     public static void register(String username,String email,String password){
-
         if( email.contains("@")==true) {
-
             User u = User.find("byEmail", username).first();
             if (u == null) {
                 User user = new User(username, email, password).save();
@@ -135,15 +129,12 @@ public class Application extends Controller {
         }
     }
     public static void registerM(String username,String email,String password){
-
         if( email.contains("@")==true) {
-
             User u = User.find("byEmail",email).first();
             if (u == null) {
                 User user = new User(username, email, password).save();
                 user.save();
                 renderText("Congratulations! You've been registered correctly");
-
             } else {
                 String message ="Sorry you are registered";
                 renderText(message);
@@ -230,10 +221,7 @@ public class Application extends Controller {
         }
         catch (Exception e){
         }
-
     }
-
-
     //get all users (Name and email)
     public static void getUsers(){
 
@@ -252,7 +240,6 @@ public class Application extends Controller {
         u.wishlistList.clear();
         u.delete();
     }
-
     //get name of a user
     public static void getName(String email){
         User u = User.find("byEmail", email).first();
@@ -261,7 +248,6 @@ public class Application extends Controller {
         }
         renderText("Yor username is: "+u.username + "");
     }
-
     //Find categories
     public  static  void findCategories(){
         List<String> categories = new ArrayList<>();
@@ -280,9 +266,6 @@ public class Application extends Controller {
         }
         renderJSON(brands.stream().distinct().collect(Collectors.toList()));
     }
-
-
-
     //Find all products by Category TV,Smartphone...
     public static void findByCategories(String category){
         List<Product> products= Product.find("byCategory",category).fetch();
@@ -292,7 +275,6 @@ public class Application extends Controller {
         else
             renderText("Please try again we haven't found: '" +category+"'");
     }
-
     //Find all products by Brand Samsung, Apple...
     public static void findByBrand(String brand){
         List<Product> products= Product.find("byBrand",brand).fetch();
@@ -302,43 +284,44 @@ public class Application extends Controller {
         else
             renderText("Please try again we haven't found: '" +brand+"'");
     }
-
     //Get all products on the shopping cart (include quantity)
     public static void getPurchase( String email){
         User u= User.find("byEmail",email).first();
-       renderJSON(u.purchase);
-
+        Purchase purchase =Purchase.find("byUserP",u).first();
+       renderJSON(purchase);
     }
-
     //Get all products in whishlist
     public static void getWishList(String email){
         User u= User.find("byEmail",email).first();
         renderJSON(u.wishlistList);
     }
-
-
-    public static void addWishlist(String email,Product product){
+    public static void addWishlist(String email,String model){
         User u = User.find("byEmail",email).first();
+        Product product=Product.find("byModel",model).first();
         u.wishlistList.add(product);
+        u.save();
+        renderText("ok");
     }
-
-    public static void addPurchase(String email, Product product, int quantity){
+    public static void addPurchase(String email, String model, int quantity){
         User u = User.find("byEmail",email).first();
        //Introduzco el producto seleccionado y la cantidad
-        ProductQuantity productQuantity = new ProductQuantity(product,quantity);
-        //Busco si la compra ya se ha hecho o hay que hacer una nueva
-        Purchase purchase = Purchase.find("byUser",u).first();
-        if (purchase!=null)
-        {
-            purchase.productQuantityList.add(productQuantity);
-        }
-        else
-        {
-            new Purchase(u);
-            purchase.productQuantityList.add(productQuantity);
-        }
-    }
+        Product product1= Product.find("byModel",model).first();
+        ProductQuantity productQuantity = new ProductQuantity(product1,quantity);
+         Purchase purchase = Purchase.find("byUserP",u).first();
+        productQuantity.save();
+         if(purchase!= null) {
+             purchase.productQuantityList.add(productQuantity);
 
+             purchase.save();
+         }
+         else
+         {
+             Purchase purchase1=new Purchase(u);
+             purchase1.productQuantityList.add(productQuantity);
+             purchase1.save();
+         }
+         renderText("ok");
+    }
     public static void getPriceOfPurchase(String email){
         User u = User.find("byEmail",email).first();
         Purchase purchase = Purchase.find("byUserP",u).first();
@@ -348,7 +331,6 @@ public class Application extends Controller {
             double price=0;
             for(int i=0; i<purchase.productQuantityList.size();i++) {
                 price = price + (purchase.productQuantityList.get(i).product.price*purchase.productQuantityList.get(i).quantity);
-
             }
             renderText(price);
         }
@@ -357,5 +339,4 @@ public class Application extends Controller {
             renderText("Your shopping cart is empty");
         }
     }
-    //Borrar carrito
 }
