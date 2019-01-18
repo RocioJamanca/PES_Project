@@ -111,9 +111,10 @@ public class Application extends Controller {
             renderTemplate("Application/register.html");
         render();
     }
+
     public static void register(String username,String email,String password){
         if( email.contains("@")==true) {
-            User u = User.find("byEmail", username).first();
+            User u = User.find("byUsernameAndEmail",username,email).first();
             if (u == null) {
                 User user = new User(username, email, password).save();
                 user.save();
@@ -130,7 +131,7 @@ public class Application extends Controller {
     }
     public static void registerM(String username,String email,String password){
         if( email.contains("@")==true) {
-            User u = User.find("byEmail",email).first();
+            User u = User.find("byUsernameAndEmail",username,email).first();
             if (u == null) {
                 User user = new User(username, email, password).save();
                 user.save();
@@ -140,7 +141,6 @@ public class Application extends Controller {
                 renderText(message);
             }
         }
-
         else
         {
             renderText("Email parameter isn't correct");
@@ -182,11 +182,12 @@ public class Application extends Controller {
 
     }
 
+    //Show different Images
     public static void showCategoryImage(String category){
         Product p = Product.find("byCategory",category).first();
         try {
             if (p != null) {
-                File imagen = new File("././documentation/images/categories/" + category + ".png");
+                File imagen = new File("./documentation/images/categories/" + category + ".png");
                 response.setContentTypeIfNotSet("image/png");
                 renderBinary(imagen);
             }
@@ -195,26 +196,27 @@ public class Application extends Controller {
 
         }
     }
-
     public static void showBrandImage(String brand){
         Product p = Product.find("byBrand",brand).first();
         try {
             if (p != null) {
-                File image = new File("././documentation/images/brands/" + brand+ ".png");
+                File image = new File("./documentation/images/brands/"+brand+".png");
                 response.setContentTypeIfNotSet("image/png");
                 renderBinary(image);
             }
+            else
+                renderText("OK");
         }
         catch (Exception e){
+            e.printStackTrace();
         }
 
     }
-
     public static void showProductImage(String model){
         Product p = Product.find("byModel",model).first();
         try {
             if (p != null) {
-                File image = new File("././documentation/images/products/" + model+ ".jpg");
+                File image = new File("./documentation/images/products/" + model+ ".jpg");
                 response.setContentTypeIfNotSet("image/jpg");
                 renderBinary(image);
             }
@@ -222,6 +224,8 @@ public class Application extends Controller {
         catch (Exception e){
         }
     }
+
+
     //get all users (Name and email)
     public static void getUsers(){
 
@@ -248,6 +252,8 @@ public class Application extends Controller {
         }
         renderText("Yor username is: "+u.username + "");
     }
+
+
     //Find categories
     public  static  void findCategories(){
         List<String> categories = new ArrayList<>();
@@ -284,26 +290,37 @@ public class Application extends Controller {
         else
             renderText("Please try again we haven't found: '" +brand+"'");
     }
+    public  static void findProduct(String model){
+        Product product=Product.find("byModel",model).first();
+        if(product!=null) {
+            renderJSON(product);
+        }
+        else
+            renderText("Please try again we haven't found: '" +product+"'");
+    }
+
+
+    //Here we've got all about wishlist and Shopping Cart
     //Get all products on the shopping cart (include quantity)
-    public static void getPurchase( String email){
-        User u= User.find("byEmail",email).first();
+    public static void getPurchase( String username){
+        User u= User.find("byUsername",username).first();
         Purchase purchase =Purchase.find("byUserP",u).first();
        renderJSON(purchase);
     }
     //Get all products in whishlist
-    public static void getWishList(String email){
-        User u= User.find("byEmail",email).first();
+    public static void getWishList(String username){
+        User u= User.find("byEmail",username).first();
         renderJSON(u.wishlistList);
     }
-    public static void addWishlist(String email,String model){
-        User u = User.find("byEmail",email).first();
+    public static void addWishlist(String username,String model){
+        User u = User.find("byUsername",username).first();
         Product product=Product.find("byModel",model).first();
         u.wishlistList.add(product);
         u.save();
         renderText("ok");
     }
-    public static void addPurchase(String email, String model, int quantity){
-        User u = User.find("byEmail",email).first();
+    public static void addPurchase(String username, String model, int quantity){
+        User u = User.find("byUsername",username).first();
        //Introduzco el producto seleccionado y la cantidad
         Product product1= Product.find("byModel",model).first();
         ProductQuantity productQuantity = new ProductQuantity(product1,quantity);
@@ -322,8 +339,8 @@ public class Application extends Controller {
          }
          renderText("ok");
     }
-    public static void getPriceOfPurchase(String email){
-        User u = User.find("byEmail",email).first();
+    public static void getPriceOfPurchase(String username){
+        User u = User.find("byUsername",username).first();
         Purchase purchase = Purchase.find("byUserP",u).first();
 
         if (purchase!=null)
