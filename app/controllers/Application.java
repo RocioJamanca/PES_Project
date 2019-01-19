@@ -305,19 +305,20 @@ public class Application extends Controller {
     public static void getPurchase( String username){
         User u= User.find("byUsername",username).first();
         Purchase purchase =Purchase.find("byUserP",u).first();
-       renderJSON(purchase);
+       renderJSON(purchase.productQuantityList);
     }
     //Get all products in whishlist
     public static void getWishList(String username){
-        User u= User.find("byEmail",username).first();
+        User u= User.find("byUsername",username).first();
         renderJSON(u.wishlistList);
     }
     public static void addWishlist(String username,String model){
         User u = User.find("byUsername",username).first();
         Product product=Product.find("byModel",model).first();
         u.wishlistList.add(product);
-        u.save();
         renderText("ok");
+        u.save();
+
     }
     public static void addPurchase(String username, String model, int quantity){
         User u = User.find("byUsername",username).first();
