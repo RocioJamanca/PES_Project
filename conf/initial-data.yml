@@ -1,0 +1,886 @@
+# you describe your data using the YAML notation here
+# and then load them using Fixtures.load("data.yml")
+
+User(admin):
+  email: admin@gmail.com
+  password: admin
+  fullname: admin
+
+# you describe your data using the YAML notation here
+# and then load them using Fixtures.load("data.yml")
+
+
+#ordenadores
+
+Product(P1):
+  category: COMPUTER
+  brand: ACER
+  model: AC1
+  price: 200
+  description: BLANCO
+  #url: https://thumb.pccomponentes.com/w-530-530/articles/16/169091/nitro51.jpg
+
+Product(P2):
+  category: COMPUTER
+  brand: ACER
+  model: AC2
+  price: 250
+  description: ROJO
+  #url: https://thumb.pccomponentes.com/w-530-530/articles/17/176739/as-a315-31-wp-win10-01.jpg
+
+Product(P3):
+  category: COMPUTER
+  brand: ACER
+  model: AC3
+  price: 450
+  description: BLANCO
+  #url: https://thumb.pccomponentes.com/w-530-530/articles/14/142293/25a1.jpg
+
+Product(P4):
+  category: COMPUTER
+  brand: ACER
+  model: AC4
+  price: 600
+  description: GRIS
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/14/146132/sf113-31-silver-win10-01.jpg
+
+
+
+Product(P5):
+  category: COMPUTER
+  brand: ASUS
+  model: AS1
+  price: 200
+  description: BLANCO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/16/168684/1265080.jpg
+
+Product(P6):
+  category: COMPUTER
+  brand: ASUS
+  model: AS2
+  price: 340
+  description: NEGRO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/17/170824/1.jpg
+
+Product(P7):
+  category: COMPUTER
+  brand: ASUS
+  model: AS3
+  price: 450
+  description: BLANCO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/16/163032/gl703-gsgm-05-l.jpg
+
+Product(P8):
+  category: COMPUTER
+  brand: ASUS
+  model: AS4
+  price: 600
+  description: ROJO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/17/173067/asus-tuf-gaming-fx705gd-ge-product-photos-red-matter-lighting-04.jpg
+
+
+Product(P9):
+  category: COMPUTER
+  brand: LENOVO
+  model: LE1
+  price: 300
+  description: BLANCO
+  #url: https://thumb.pccomponentes.com/w-530-530/articles/17/175668/1.jpg
+
+Product(P10):
+  category: COMPUTER
+  brand: LENOVO
+  model: LE2
+  price: 800
+  description: NEGRO
+  #url: https://thumb.pccomponentes.com/w-530-530/articles/17/175771/b-1.jpg
+
+Product(P11):
+  category: COMPUTER
+  brand: LENOVO
+  model: LE3
+  price: 720
+  description: BLANCO
+  #url: https://thumb.pccomponentes.com/w-530-530/articles/17/175787/33015onyx.jpg
+
+Product(P12):
+  category: COMPUTER
+  brand: LENOVO
+  model: LE4
+  price: 980
+  description: GRIS
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/17/178153/3.jpg
+
+
+
+Product(P13):
+  category: COMPUTER
+  brand: TOSHIBA
+  model: TO1
+  price: 200
+  description: NEGRO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/15/157623/c11.jpg
+
+Product(P14):
+  category: COMPUTER
+  brand: TOSHIBA
+  model: TO2
+  price: 500
+  description: ROJO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/17/170534/1.jpg
+
+Product(P15):
+  category: COMPUTER
+  brand: TOSHIBA
+  model: TO3
+  price: 900
+  description: GRIS
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/16/166561/1.jpg
+
+Product(P16):
+  category: COMPUTER
+  brand: TOSHIBA
+  model: TO4
+  price: 970
+  description: BLANCO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/11/110985/toshiba-satellite-radius-12-p20w-c-103-i7-6500u-8gb-256gb-ssd-12-5.jpg
+
+
+
+
+
+#MOVILES
+Product(P17):
+  category: SMARTPHONE
+  brand: APPLE
+  model: IPH1
+  price: 800
+  description: NEGRO
+  #url: https://thumb.pccomponentes.com/w-530-530/articles/10/104854/apple-iphone-6s-plus-16gb-gris-espacial.jpg
+
+Product(P18):
+  category: SMARTPHONE
+  brand: APPLE
+  model: IPH2
+  price: 800
+  description: GRIS
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/10/104859/apple-iphone-6s-16gb-plateado.jpg
+
+Product(P19):
+  category: SMARTPHONE
+  brand: APPLE
+  model: IPH3
+  price: 900
+  description: NEGRO
+  #url: https://thumb.pccomponentes.com/w-530-530/articles/17/171053/iphonexr-black-pureangles-us-en-screen1.jpg
+
+Product(P20):
+  category: SMARTPHONE
+  brand: APPLE
+  model: IPH4
+  price: 600
+  description: BLANCO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/12/122680/1226800.jpg
+
+
+
+Product(P21):
+  category: SMARTPHONE
+  brand: SAMSUNG
+  model: S1
+  price: 300
+  description: NEGRO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/13/132138/l1.jpg
+
+Product(P22):
+  category: SMARTPHONE
+  brand: SAMSUNG
+  model: S2
+  price: 500
+  description: GRIS
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/12/123417/s8n3.jpg
+
+Product(P23):
+  category: SMARTPHONE
+  brand: SAMSUNG
+  model: S3
+  price: 870
+  description: ROJO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/16/166383/k11.jpg
+
+Product(P24):
+  category: SMARTPHONE
+  brand: SAMSUNG
+  model: S4
+  price: 650
+  description: GRIS
+  #url: https://thumb.pccomponentes.com/w-530-530/articles/9/96459/samsung-galaxy-s7-negro.jpg
+
+Product(P25):
+  category: SMARTPHONE
+  brand: BQ
+  model:  BQ1
+  price: 320
+  description: BLANCO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/10/105502/105502.jpg
+
+Product(P26):
+  category: SMARTPHONE
+  brand: BQ
+  model:  BQ2
+  price: 320
+  description: NEGRO
+  #url: https://thumb.pccomponentes.com/w-530-530/articles/17/174073/aquaris-c-black-frontal-800-3-2.jpg
+
+Product(P27):
+  category: SMARTPHONE
+  brand: BQ
+  model:  BQ3
+  price: 820
+  description: ROJO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/16/161755/aquaris-x2-carbon-black-frontal-1.jpg
+
+Product(P28):
+  category: SMARTPHONE
+  brand: BQ
+  model:  BQ4
+  price: 320
+  description: GRIS
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/16/161999/aquaris-x2-pro-glazewhite-frontal-1.jpg
+
+
+Product(P29):
+  category: SMARTPHONE
+  brand: XIAOMI
+  model:  XI1
+  price: 320
+  description: NEGRO
+  #url:https://img.pccomponentes.com/articles/15/158384/xiaomi-redmi-note-5-pro-black-64-gb.jpg
+
+Product(P30):
+  category: SMARTPHONE
+  brand: XIAOMI
+  model:  XI2
+  price: 320
+  description: BLANCO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/17/177081/asfds.jpg
+
+Product(P31):
+  category: SMARTPHONE
+  brand: XIAOMI
+  model:  XI3
+  price: 420
+  description: ROJO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/17/170126/poconegro-1.jpg
+
+Product(P32):
+  category: SMARTPHONE
+  brand: XIAOMI
+  model:  XI4
+  price: 650
+  description: GRIS
+  #URL: https://thumb.pccomponentes.com/w-530-530/articles/13/138881/1.jpg
+
+
+
+
+
+  # tv
+Product(P33):
+  category: TV
+  brand: LG
+  model: LG1
+  price: 800
+  description: GRIS
+  #url: https://img.pccomponentes.com/articles/16/166459/large02-copia.jpg
+
+Product(P34):
+  category: TV
+  brand: LG
+  model: LG2
+  price: 800
+  description: ROJO
+  #url:https://img.pccomponentes.com/articles/17/172504/1.jpg
+
+Product(P35):
+  category: TV
+  brand: LG
+  model: LG3
+  price: 800
+  description: NEGRO
+  #url:https://img.pccomponentes.com/articles/17/172013/1.jpg
+
+Product(P36):
+  category: TV
+  brand: LG
+  model: LG4
+  price: 800
+  description: BLANCO
+  #url:https://img.pccomponentes.com/articles/16/165973/1.jpg
+
+Product(P37):
+  category: TV
+  brand: PHILIPS
+  model: PHI1
+  price: 800
+  description: GRIS
+  #url:https://img.pccomponentes.com/articles/16/162960/24pfs5603-12-fp-global-001.jpg
+
+Product(P38):
+  category: TV
+  brand: PHILIPS
+  model: PHI2
+  price: 800
+  description: BLANCO
+  #url:https://img.pccomponentes.com/articles/16/162960/24pfs5603-12-fp-global-001.jpg
+
+Product(P39):
+  category: TV
+  brand: PHILIPS
+  model: PHI3
+  price: 800
+  description: ROJO
+  #url:https://img.pccomponentes.com/articles/16/162849/32pfs5803-12-ims-es-es.jpg
+
+Product(P40):
+  category: TV
+  brand: PHILIPS
+  model: PHI4
+  price: 800
+  description: NEGRO
+  #url:https://img.pccomponentes.com/articles/14/149837/b3.jpg
+
+Product(P41):
+  category: TV
+  brand: SONY
+  model: SONY1
+  price: 540
+  description: BLANCO
+  #url:https://img.pccomponentes.com/articles/15/158124/50806005-7850263220.jpg
+
+Product(P42):
+  category: TV
+  brand: SONY
+  model: SONY2
+  price: 640
+  description: GRIS
+  #url:https://img.pccomponentes.com/articles/15/154516/j-1.jpg
+
+Product(P43):
+  category: TV
+  brand: SONY
+  model: SONY3
+  price: 330
+  description: BLANCO
+  #url:https://img.pccomponentes.com/articles/14/143855/a1.jpg
+
+Product(P44):
+  category: TV
+  brand: SONY
+  model: SONY4
+  price: 555
+  description: GRIS
+  #url:https://img.pccomponentes.com/articles/17/170353/1.jpg
+
+Product(P45):
+  category: TV
+  brand: SAMSUNG
+  model: SAMSUNG1
+  price: 525
+  description: ROJO
+  #url:https://img.pccomponentes.com/articles/16/161042/es-uhdtv-nu7105-ue75nu7105kxxc-black-black-97619464.jpg
+
+Product(P46):
+  category: TV
+  brand: SAMSUNG
+  model: SAMSUNG2
+  price: 670
+  description: BLANCO
+  #url:https://img.pccomponentes.com/articles/17/170649/1.jpg
+
+Product(P47):
+  category: TV
+  brand: SAMSUNG
+  model: SAMSUNG3
+  price: 825
+  description: GRIS
+  #url:https://img.pccomponentes.com/articles/16/160930/es-uhdtv-nu8005-ue75nu8005txxc-black-black-97510218.jpg
+
+Product(P48):
+  category: TV
+  brand: SAMSUNG
+  model: SAMSUNG4
+  price: 500
+  description: NEGRO
+  #url:https://img.pccomponentes.com/articles/14/147066/b1.jpg
+
+
+  #PRINTER
+Product(P49):
+  category: PRINTER
+  brand: BROTHER
+  model: BR1
+  price: 200
+  description: GRIS
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/14/147751/hll2350dw-main.jpg
+
+Product(P50):
+  category: PRINTER
+  brand: BROTHER
+  model: BR21
+  price: 270
+  description: BLANCO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/17/170163/d2.jpg
+
+Product(P51):
+  category: PRINTER
+  brand: BROTHER
+  model: BR3
+  price: 230
+  description: NEGRO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/6/64701/brother-hl-1110-laser-monocromo.jpg
+
+Product(P52):
+  category: PRINTER
+  brand: BROTHER
+  model: BR4
+  price: 300
+  description: GRIS
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/14/148009/hll2370dn-main.jpg
+
+Product(P53):
+  category: PRINTER
+  brand: CANON
+  model: CA1
+  price: 300
+  description: BLANCO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/6/65015/canon-pixma-ip2850-blanca-1.jpg
+
+Product(P54):
+  category: PRINTER
+  brand: CANON
+  model: CA2
+  price: 250
+  description: GRIS
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/9/97345/canon-pixma-ip7250-multifuncion-wifi-1.jpg
+
+Product(P55):
+  category: PRINTER
+  brand: CANON
+  model: CA3
+  price: 320
+  description: NEGRO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/16/160681/imageclass-lbp212dw-alt-1400x960.jpg
+
+Product(P56):
+  category: PRINTER
+  brand: CANON
+  model: CA4
+  price: 120
+  description: BLANCO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/16/160770/1.jpg
+
+Product(P57):
+  category: PRINTER
+  brand: EPSON
+  model: EP1
+  price: 120
+  description: GRIS
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/16/160701/81t3ltikczl-sl1500.jpg
+
+Product(P58):
+  category: PRINTER
+  brand: EPSON
+  model: EP2
+  price: 220
+  description: NEGRO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/12/120329/1.jpg
+
+Product(P59):
+  category: PRINTER
+  brand: EPSON
+  model: EP3
+  price: 120
+  description: BLANCO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/13/135603/2.jpg
+
+Product(P60):
+  category: PRINTER
+  brand: EPSON
+  model: EP4
+  price: 140
+  description: GRIS
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/16/160701/81t3ltikczl-sl1500.jpg
+
+
+Product(P61):
+  category: PRINTER
+  brand: HP
+  model: HPP1
+  price: 140
+  description: BLANCO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/10/101324/hp-deskjet-3720-impresora-wifi-1.jpg
+
+Product(P62):
+  category: PRINTER
+  brand: HP
+  model: HPP2
+  price: 240
+  description: GRIS
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/14/142362/n1.jpg
+
+Product(P63):
+  category: PRINTER
+  brand: HP
+  model: HPP3
+  price: 160
+  description: BLANCO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/16/162577/c05655392-1750x1285.jpg
+
+Product(P64):
+  category: PRINTER
+  brand: HP
+  model: HPP4
+  price: 100
+  description: GRIS
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/10/109561/d1.jpg
+
+
+#camera
+
+Product(P65):
+  category: CAMERA
+  brand: CANON
+  model: CA1
+  price: 100
+  description: NEGRO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/15/158283/01.jpg
+
+
+Product(P66):
+  category: CAMERA
+  brand: CANON
+  model: CA2
+  price: 300
+  description: AZUL
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/17/179258/1.jpg
+
+Product(P67):
+  category: CAMERA
+  brand: CANON
+  model: CA3
+  price: 100
+  description: ROJO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/14/147727/1.jpg
+
+Product(P68):
+  category: CAMERA
+  brand: CANON
+  model: CA4
+  price: 370
+  description: NEGRO
+  #url:https://thumb.pccomponentes.com/w-530-530/articles/17/176414/1.jpg
+
+
+  Product(P69):
+    category: CAMERA
+    brand: NIKON
+    model: NI1
+    price: 100
+    description: NEGRO
+    #url:https://thumb.pccomponentes.com/w-530-530/articles/10/105223/1.jpg
+
+
+  Product(P70):
+    category: CAMERA
+    brand: NIKON
+    model: NI2
+    price: 300
+    description: GRIS
+    #url:https://thumb.pccomponentes.com/w-530-530/articles/10/105220/1.jpg
+
+  Product(P71):
+    category: CAMERA
+    brand: NIKON
+    model: NI3
+    price: 77
+    description: LILA
+    #url:https://thumb.pccomponentes.com/w-530-530/articles/10/105221/1.jpg
+
+  Product(P72):
+    category: CAMERA
+    brand: NIKON
+    model: NI4
+    price: 89
+    description: NEGRO
+    #url:https://thumb.pccomponentes.com/w-530-530/articles/13/133851/94311.jpg
+
+
+  Product(P73):
+    category: CAMERA
+    brand: PANASONIC
+    model: PA1
+    price: 900
+    description: NEGRO
+    #url:https://thumb.pccomponentes.com/w-530-530/articles/12/120854/z23.jpg
+
+  Product(P74):
+    category: CAMERA
+    brand: PANASONIC
+    model: PA2
+    price: 300
+    description: BLANCO
+    #url:https://img.pccomponentes.com/articles/17/179267/1.jpg
+
+  Product(P75):
+    category: CAMERA
+    brand: PANASONIC
+    model: PA3
+    price: 707
+    description: ROJO
+    #url:https://thumb.pccomponentes.com/w-530-530/articles/16/169182/a32.jpg
+
+  Product(P76):
+    category: CAMERA
+    brand: PANASONIC
+    model: PA4
+    price: 890
+    description: GRIS
+    #url:https://thumb.pccomponentes.com/w-530-530/articles/9/99242/panasonic-dmc-tz80-18mp-4k-plata.jpg
+
+
+  Product(P77):
+    category: CAMERA
+    brand: EASYPIX
+    model: EA1
+    price: 90
+    description: NEGRO
+    #url:https://thumb.pccomponentes.com/w-530-530/articles/16/166678/81ekn5ezrel-sl1500.jpg
+
+  Product(P78):
+    category: CAMERA
+    brand: EASYPIX
+    model: EA2
+    price: 30
+    description: BLANCO
+    #url:https://thumb.pccomponentes.com/w-530-530/articles/16/166660/81pkhciffjl-sl1500.jpg
+
+  Product(P79):
+    category: CAMERA
+    brand: EASYPIX
+    model: EA3
+    price: 70
+    description: ROJO
+    #url:https://thumb.pccomponentes.com/w-530-530/articles/16/166681/91a-02l-6ml-sl1500.jpg
+
+  Product(P80):
+    category: CAMERA
+    brand: EASYPIX
+    model: EA4
+    price: 89
+    description: LILA
+    #url:https://thumb.pccomponentes.com/w-530-530/articles/17/179689/1.jpg
+
+  Product(P81):
+    category: TABLET
+    brand: LENOVO
+    model: LV1
+    price: 140
+    description: NEGRO
+    #https://thumb.pccomponentes.com/w-530-530/articles/16/161068/1.jpg
+
+
+
+
+  Product(P82):
+    category: TABLET
+    brand: LENOVO
+    model: LV2
+    price: 300
+    description: NEGRO
+    #https://thumb.pccomponentes.com/w-530-530/articles/12/121339/1.jpg
+
+Product(P83):
+  category: TABLET
+  brand: LENOVO
+  model: LV3
+  price: 230
+  description: BLANCO #https://thumb.pccomponentes.com/w-530-530/articles/15/152528/01-tab4-hd-10inch-tour-front-forward-facing-white.jpg
+
+Product(P84):
+  category: TABLET
+  brand: LENOVO
+  model: LV4
+  price: 400
+  description: NEGRO
+  #https://thumb.pccomponentes.com/w-530-530/articles/13/136667/1.jpg
+
+Product(P85):
+  category: TABLET
+  brand: APPLE
+  model: AP1
+  price: 340
+  description: NEGRO
+  #https://thumb.pccomponentes.com/w-530-530/articles/15/157935/7.jpg
+
+Product(P86):
+  category: TABLET
+  brand: APPLE
+  model: AP2
+  price: 340
+  description: BLANCO
+  #https://thumb.pccomponentes.com/w-530-530/articles/15/157935/7.jpg
+
+
+Product(P87):
+  category: TABLET
+  brand: APPLE
+  model: AP3
+  price: 880
+  description: GRIS
+  #https://thumb.pccomponentes.com/w-530-530/articles/17/175693/ipad-pro-11-select-cell-spacegray-201810.jpg
+
+Product(P88):
+  category: TABLET
+  brand: APPLE
+  model: AP4
+  price: 1100
+  description: GRIS
+  #https://thumb.pccomponentes.com/w-530-530/articles/17/175774/ipad-pro-12-select-cell-spacegray-201810.jpg
+
+
+Product(P89):
+  category: TABLET
+  brand: SAMSUNG
+  model: SM1
+  price: 300
+  description: NEGRO
+  #https://thumb.pccomponentes.com/w-530-530/articles/10/102193/samsung-galaxy-tab-s2-9-7-wifi-negra.jpg
+
+Product(P90):
+  category: TABLET
+  brand: SAMSUNG
+  model: SM2
+  price: 300
+  description: BLANCO
+  #https://thumb.pccomponentes.com/w-530-530/articles/10/102387/1.jpg
+
+
+
+Product(P92):
+  category: TABLET
+  brand: SAMSUNG
+  model: SM3
+  price: 630
+  description: NEGRO            #https://thumb.pccomponentes.com/w-530-530/articles/16/169932/es-galaxy-tabs4-t830-sm-t830nzaaphe-greyfrontgray-110473731.jpg
+
+Product(P93):
+  category: TABLET
+  brand: SAMSUNG
+  model: SM4
+  price: 630
+  description: NEGRO
+#https://thumb.pccomponentes.com/w-530-530/articles/12/126535/1265350.jpg
+
+
+Product(P94):
+  category: TABLET
+  brand: BQ
+  model: TBQ1
+  price: 140
+  description: BLANCO
+#https://thumb.pccomponentes.com/w-530-530/articles/9/94759/bq-edison-3-quad-core-10-1-32gb-blanca.jpg
+
+Product(P95):
+  category: TABLET
+  brand: BQ
+  model: TBQ2
+  price: 140
+  description: BLANCO
+#https://thumb.pccomponentes.com/w-530-530/articles/10/106105/a1.jpg
+
+Product(P96):
+  category: TABLET
+  brand: BQ
+  model: TBQ3
+  price: 155
+  description: BLANCO
+#https://thumb.pccomponentes.com/w-530-530/articles/9/91036/bq-aquaris-m10-10-1-16gb-hd-blanca.jpg
+
+
+
+Product(P97):
+  category: TABLET
+  brand: BQ
+  model: BQ4
+  price: 155
+  description: NEGRO
+#https://thumb.pccomponentes.com/w-530-530/articles/9/91035/bq-aquaris-m10-10-1-16gb-hd-negra.jpg
+
+Product(P98):
+  category: CONSOLE
+  brand: PS4
+  model: PS41
+  price: 300
+  description: NEGRO
+#https://thumb.pccomponentes.com/w-530-530/articles/17/173603/1.jpg
+
+
+Product(P99):
+  category: CONSOLE
+  brand: PS4
+  model: PS42
+  price: 350
+  description: NEGRO
+#https://thumb.pccomponentes.com/w-530-530/articles/18/181997/1.jpg
+
+Product(P100):
+  category: CONSOLE
+  brand: XBOX
+  model: XB1
+  price: 430
+  description: NEGRO
+#https://thumb.pccomponentes.com/w-530-530/articles/14/141716/1.jpg
+
+Product(P101):
+  category: CONSOLE
+  brand: XBOX
+  model: XB2
+  price: 420
+  description: BLANCO
+#https://thumb.pccomponentes.com/w-530-530/articles/17/171503/xbox-one-x-white-1535619777474.jpg
+
+
+Product(P102):
+  category: CONSOLE
+  brand: XBOX
+  model: XB3
+  price: 250
+  description: BLANCO
+#https://thumb.pccomponentes.com/w-530-530/articles/17/171497/csl-xbox-one-s-1to-fh4.jpg
+
+Product(P103):
+  category: CONSOLE
+  brand: NINTENDO
+  model: SW1
+  price: 300
+  description: AZUL
+#https://thumb.pccomponentes.com/w-530-530/articles/11/117164/consola-nintendo-switch-1351124-81-l.jpg
+
+Product(P104):
+  category: CONSOLE
+  brand: NINTENDO
+  model: SW2
+  price: 310
+  description: GRIS
+#https://thumb.pccomponentes.com/w-530-530/articles/11/117164/consola-nintendo-switch-1351124-81-l.jpg
+
+
+
+
+
+
+
+
+
+

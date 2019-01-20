@@ -2,15 +2,17 @@ package controllers;
 
 import org.junit.experimental.categories.Categories;
 import play.*;
+import play.jobs.OnApplicationStart;
 import play.mvc.*;
 
 import java.io.File;
 import java.util.*;
 import java.util.stream.Collectors;
-
+import javax.jws.soap.SOAPBinding;
 import models.*;
 
-import javax.jws.soap.SOAPBinding;
+
+
 
 public class Application extends Controller {
 
@@ -252,6 +254,10 @@ public class Application extends Controller {
         }
         renderText("Yor username is: "+u.username + "");
     }
+    public static void getUser(String username){
+        User u=User.find("byUsername",username).first();
+        renderJSON(u);
+    }
 
 
     //Find categories
@@ -316,8 +322,8 @@ public class Application extends Controller {
         User u = User.find("byUsername",username).first();
         Product product=Product.find("byModel",model).first();
         u.wishlistList.add(product);
-        renderText("ok");
         u.save();
+        renderText("ok");
 
     }
     public static void addPurchase(String username, String model, int quantity){

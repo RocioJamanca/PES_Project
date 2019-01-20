@@ -9,7 +9,7 @@ public class BasicTest extends UnitTest {
     public void inicializar(){
 
        User u5= new User("Ana","ana@gmail.com","ana123").save();
-       Product p5= new Product("TV","JK1200","SAMSUNG",1752).save();
+       Product p5= new Product("TV","JK1200","SAMSUNG",1752,null).save();
        ProductQuantity pq5= new ProductQuantity(p5,150).save();
        List<ProductQuantity> productQuantityList =new ArrayList<ProductQuantity>();
        productQuantityList.add(pq5);
@@ -65,7 +65,7 @@ public class BasicTest extends UnitTest {
 
         //Add to shoping cart
         String email="ana@gmail.com";
-        Product p4= new Product("SAMSUNG","MODEL","BRAND",1582);
+        Product p4= new Product("SAMSUNG","MODEL","BRAND",1582,null);
         User u4 = User.find("byEmail",email).first();
         ProductQuantity productQuantity = new ProductQuantity(p4,78);
         Purchase pur= new Purchase(u4);
