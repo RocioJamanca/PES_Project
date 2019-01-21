@@ -12,7 +12,7 @@ GET     /favicon.ico                            404
 POST /registerM                                 Application.registerM
 
 #RegisterM
-POST /loginM                                 Application.loginM
+POST /loginM                                    Application.loginM
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
