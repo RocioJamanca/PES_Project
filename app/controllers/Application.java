@@ -1,10 +1,8 @@
 package controllers;
-
 import org.junit.experimental.categories.Categories;
 import play.*;
 import play.jobs.OnApplicationStart;
 import play.mvc.*;
-
 import java.io.File;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -23,7 +21,7 @@ public class Application extends Controller {
     }
 
 
-public static void initProducts() {
+public static void initProducts() { //Función para la web ya que tenemos inicializado el initial-data.yml
 
         Product p1= new Product("TV","LG1","LG",400,"1234").save();
         Product p2= new Product("TV","45","LG",500,"1234").save();
@@ -66,7 +64,6 @@ public static void initProducts() {
         Product p34= new Product("PRINTER","OFFICE JET","CANON",250,"1234").save();
         Product p35= new Product("PRINTER","OFFICE JET PRO","CANON",272,"1234").save();
 
-
         ProductQuantity productQuantity1=new ProductQuantity(p1,5).save();
         ProductQuantity productQuantity2=new ProductQuantity(p2,5).save();
         ProductQuantity productQuantity3=new ProductQuantity(p3,5).save();
@@ -106,6 +103,7 @@ public static void initProducts() {
         renderTemplate("Application/shoppingPage.html");
     }
 
+    //Pagina inicial de web
     public static void loadPage(int i){
             if (i==1)
             renderTemplate("Application/login.html");
@@ -113,7 +111,7 @@ public static void initProducts() {
             renderTemplate("Application/register.html");
         render();
     }
-
+    //Registro web
     public static void register(String username,String email,String password){
         if( email.contains("@")==true) {
             User u = User.find("byUsernameAndEmail",username,email).first();
@@ -131,6 +129,7 @@ public static void initProducts() {
             renderText("Email parameter isn't correct");
         }
     }
+    //Registro App
     public static void registerM(String username,String email,String password){
         if( email.contains("@")==true) {
             User u = User.find("byUsername",username).first();
@@ -149,7 +148,7 @@ public static void initProducts() {
         }
 
     }
-
+    //Login web
     public static void login(String username,String password){
         User user = User.find("byUsernameAndPassword",username,password).first();
         if (user!=null)
@@ -170,6 +169,7 @@ public static void initProducts() {
         }
 
     }
+    //Login App
     public static void loginM(String username,String password){
         User user = User.find("byUsernameAndPassword",username,password).first();
         if (user!=null)
@@ -184,7 +184,7 @@ public static void initProducts() {
 
     }
 
-    //Show different Images
+    //Mostrar imagenes
     public static void showCategoryImage(String category){
         Product p = Product.find("byCategory",category).first();
         try {
@@ -228,25 +228,7 @@ public static void initProducts() {
     }
 
 
-    //get all users (Name and email)
-    public static void getUsers(){
-
-        List<User> u =User.findAll();
-        List<String> users= new ArrayList<String>();
-        for (int i=0; i<u.size();i++)
-        {
-            users.add(u.get(i).username+"/"+u.get(i).email);
-        }
-        renderJSON(users);
-    }
-    //delete user
-    public  static void deleteUser(String user){
-        User u= User.find("byUsername",user).first();
-        u.purchase.delete();
-        u.wishlistList.clear();
-        u.delete();
-    }
-    //get name of a user
+    //Obtener datos de usuario
     public static void getName(String email){
         User u = User.find("byEmail", email).first();
         if(u == null){
@@ -260,7 +242,7 @@ public static void initProducts() {
     }
 
 
-    //Find categories
+    //Find categories (para saber cuántas categorias tenemos)
     public  static  void findCategories(){
         List<String> categories = new ArrayList<>();
         List<Product> productList = Product.findAll();
@@ -269,7 +251,7 @@ public static void initProducts() {
         }
         renderJSON(categories.stream().distinct().collect(Collectors.toList()));
     }
-    //Find brands
+    //Find brands (para saber cuántas marcas tenemos)
     public  static  void findBrands(){
         List<String> brands = new ArrayList<>();
         List<Product> productList = Product.findAll();
@@ -278,7 +260,7 @@ public static void initProducts() {
         }
         renderJSON(brands.stream().distinct().collect(Collectors.toList()));
     }
-    //Find all products by Category TV,Smartphone...
+    //Find all products by Category TV,Smartphone... (crear una lista de productos de determinada categoria)
     public static void findByCategories(String category){
         List<Product> products= Product.find("byCategory",category).fetch();
         if(products!=null) {
@@ -287,7 +269,7 @@ public static void initProducts() {
         else
             renderText("Please try again we haven't found: '" +category+"'");
     }
-    //Find all products by Brand Samsung, Apple...
+    //Find all products by Brand Samsung, Apple...(crear una lista de productos de determinada marca)
     public static void findByBrand(String brand){
         List<Product> products= Product.find("byBrand",brand).fetch();
         if(products!=null) {
@@ -296,6 +278,7 @@ public static void initProducts() {
         else
             renderText("Please try again we haven't found: '" +brand+"'");
     }
+    //Find product by model
     public  static void findProduct(String model){
         Product product=Product.find("byModel",model).first();
         if(product!=null) {
@@ -306,18 +289,19 @@ public static void initProducts() {
     }
 
 
-    //Here we've got all about wishlist and Shopping Cart
-    //Get all products on the shopping cart (include quantity)
+    //Aquí tenemos lo relacionado con la wishlist y el carrito(purchase)
+    //Obtener todos los productos del carrito
     public static void getPurchase( String username){
         User u= User.find("byUsername",username).first();
         Purchase purchase =Purchase.find("byUserP",u).first();
        renderJSON(purchase.productQuantityList);
     }
-    //Get all products in whishlist
+    //Obtener todos los productos de la wishlist
     public static void getWishList(String username){
         User u= User.find("byUsername",username).first();
         renderJSON(u.wishlistList);
     }
+    //Añadir productos a la wishlist
     public static void addWishlist(String username,String model){
         User u = User.find("byUsername",username).first();
         Product product=Product.find("byModel",model).first();
@@ -326,6 +310,7 @@ public static void initProducts() {
         renderText("ok");
 
     }
+    //Añadir productos al carrito
     public static void addPurchase(String username, String model, int quantity){
         User u = User.find("byUsername",username).first();
        //Introduzco el producto seleccionado y la cantidad
@@ -346,6 +331,7 @@ public static void initProducts() {
          }
          renderText("ok");
     }
+    //Obtener el precio de los productos(Funcion finalmente no impleentada)
     public static void getPriceOfPurchase(String username){
         User u = User.find("byUsername",username).first();
         Purchase purchase = Purchase.find("byUserP",u).first();
