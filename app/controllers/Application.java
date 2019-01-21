@@ -23,7 +23,7 @@ public class Application extends Controller {
     }
 
 
-    public static void initProducts(){
+public static void initProducts() {
 
         Product p1= new Product("TV","LG1","LG",400,"1234").save();
         Product p2= new Product("TV","45","LG",500,"1234").save();
@@ -133,7 +133,7 @@ public class Application extends Controller {
     }
     public static void registerM(String username,String email,String password){
         if( email.contains("@")==true) {
-            User u = User.find("byUsernameAndEmail",username,email).first();
+            User u = User.find("byUsername",username).first();
             if (u == null) {
                 User user = new User(username, email, password).save();
                 user.save();
