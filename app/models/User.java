@@ -1,7 +1,5 @@
 package models;
-
 import play.db.jpa.Model;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,14 +21,8 @@ public class User extends Model {
         this.wishlistList  = new ArrayList<Product>();
         //this.purchaseList = new ArrayList<Purchase>();
     }
-    @OneToOne //(mappedBy = "userP",cascade = CascadeType.ALL)
+    @OneToOne
     public Purchase purchase;
-
-  //  @OneToMany
-  //  public List<ProductQuantity> shoppingCartList;
-
-   @OneToMany
+    @OneToMany
     public List<Product> wishlistList;
-
-
 }
